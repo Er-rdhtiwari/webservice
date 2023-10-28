@@ -4,9 +4,9 @@ pipeline {
           maven 'mavenprj'
           } 
     stages {
-        stage('update server') { 
+        stage('update Linux server') { 
             steps { 
-                sh 'apt update' 
+                sh 'dnf update' 
             } 
         } 
         stage('git clone') { 
