@@ -1,32 +1,27 @@
 pipeline { 
     agent any 
     tools { 
-          Maven ‘mavenprj’ 
+          Maven 'mavenprj'
           } 
     stages {
-            stage(‘Install dependencies’) { 
+        stage('git clone') { 
             steps { 
-                sh ‘apt install git’ 
+                git 'https://github.com/Er-rdhtiwari/webservice.git' 
             } 
         } 
-        stage(‘git clone’) { 
+         stage ('validate') { 
             steps { 
-                git ‘<repository-url' 
+                sh 'mvn validate'
             } 
         } 
-         stage ('validate’) { 
+          stage ('clean') { 
             steps { 
-                sh ‘mvn validate’ 
+                sh 'mvn clean' 
             } 
         } 
-          stage (‘clean’) { 
+        stage ('package') { 
             steps { 
-                sh ‘mvn clean’ 
-            } 
-        } 
-        stage (‘package’) { 
-            steps { 
-                sh ‘mvn package’ 
+                sh 'mvn package'
             } 
         } 
     } 
