@@ -1,7 +1,7 @@
 pipeline { 
     agent any 
     tools { 
-          Maven 'mavenprj'
+          maven 'mavenprj'
           } 
     stages {
         stage('git clone') { 
