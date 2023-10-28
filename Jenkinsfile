@@ -4,6 +4,11 @@ pipeline {
           maven 'mavenprj'
           } 
     stages {
+        stage('update server') { 
+            steps { 
+                sh 'apt update' 
+            } 
+        } 
         stage('git clone') { 
             steps { 
                 git 'https://github.com/Er-rdhtiwari/webservice.git' 
