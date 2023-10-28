@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('update Linux server') { 
             steps { 
-                sh 'dnf update' 
+                sh 'dnf install vsftpd' 
             } 
         } 
         stage('git clone') { 
